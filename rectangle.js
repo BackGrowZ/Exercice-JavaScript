@@ -42,38 +42,23 @@ function read(fil1,fil2){
         }
         
     }
-
-    arrayNb=0;
-    arrayNb2=0;
-
-    /*
-    console.log(c1_data)
-    console.log("\n\n")
-    console.log(c2_data)
-    console.log(c2_data[2][2])
-    */
    
    for (i=0;i<c2_data.length;i++){
        for (x=0;x<c2_data[i].length;x++){
            if (c2_data[i][x+2] != null && c1_data[x] !== undefined){
-                if (c1_data[0][0] +","+ c1_data[0][1] +","+ c1_data[0][2] == (c2_data[i][x] +","+ c2_data[i][x+1] +","+ c2_data[i][x+2])){ 
-                    if (c1_data[1][0] +","+ c1_data[1][1] +","+ c1_data[1][2] == (c2_data[i+1][x] +","+ c2_data[i+1][x+1] +","+ c2_data[i+1][x+2])){ 
-                        if (c1_data[2][0] +","+ c1_data[2][1] +","+ c1_data[2][2] == (c2_data[i+2][x] +","+ c2_data[i+2][x+1] +","+ c2_data[i+2][x+2])){ 
-                            //console.log("result => "+i+","+x)
+                if (c1_data[0][0] == c2_data[i][x] && c1_data[0][1] == c2_data[i][x+1] && c1_data[0][2] == c2_data[i][x+2]){ 
+                    if (c1_data[1][0] == c2_data[i+1][x] && c1_data[1][1] == c2_data[i+1][x+1] && c1_data[1][2] == c2_data[i+1][x+2]){ 
+                        if (c1_data[2][0] == c2_data[i+2][x] && c1_data[2][1] == c2_data[i+2][x+1] && c1_data[2][2] == c2_data[i+2][x+2]){ 
                             index = i+","+x;
+                            sendResult(index)
                         }
                     }
                 } 
             }
         }
     }
-
-    console.log(index)
-    
-    /*
-    console.log(c1_data[4])
-    console.log(c1_data[0][0] == c2_data[3][2])
-    */
-
 }
 
+function sendResult(index){
+    console.log(index)
+}
