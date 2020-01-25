@@ -7,11 +7,9 @@ read(fil1,fil2)
 
 
 function read(fil1,fil2){
-    var chemin1 = '/home/backgrowz/projects/Module-6/'+ fil1;
-    var chemin2 = '/home/backgrowz/projects/Module-6/'+ fil2;
     
-    var file1 = fs.readFileSync(chemin1, "utf8");
-    var file2 = fs.readFileSync(chemin2, "utf8");
+    var file1 = fs.readFileSync(fil1, "utf8");
+    var file2 = fs.readFileSync(fil2, "utf8");
     var index = "Not Found";
     var c1_data = [[],[],[]];
     var c2_data = [[],[],[],[],[]];

@@ -6,13 +6,11 @@ var file = process.argv[3];
 read(mot,file)
 
 function read(mot,file){
-    var chemin1 = '/home/backgrowz/projects/Module-6/'+ file;
-    var fileSource = fs.readFileSync(chemin1, "utf8");
+    var fileSource = fs.readFileSync(file, "utf8");
     var file_Data = [[],[],[],[],[]];
     var mot_Data = [];
     var arrayNb = 0;
     var arrayNb2 = 0;
-    var result = [];
 
     for (i=0; i<fileSource.length; i++){ // Change file to array 
         if (fileSource.charAt(i) == "\n"){
