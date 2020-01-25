@@ -26,11 +26,6 @@ function read(file){
             arrayNb2=0;
         }
     }
-    /*
-    console.log(file_Data)
-    console.log("\n")
-    console.log(file_Data[0][0])
-    */
     
 
    //Horizontal
@@ -38,20 +33,12 @@ function read(file){
         if (file_Data[i].indexOf("_") != -1){
             for(k=1;k<9;k++){
                 if(file_Data[i].indexOf(allPossibility[k]) == -1){
-                    numberMissed = k;
                     edit = [i,file_Data[i].indexOf("_")];
-                    //console.log(edit[0],edit[1])
-                    //console.log(allPossibility[k])
                     file_Data[edit[0]][edit[1]] = allPossibility[k]
                     
                 }
             }
         }
     }
-     //console.log(file_Data[0].indexOf(allPossibility[5]) == 1)
      console.log(file_Data)
-}
-
-function completHorizontal(file_Data){
-
 }
