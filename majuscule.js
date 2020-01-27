@@ -9,11 +9,9 @@ function majuscule(args){
     for (i=0; i<=nbCaracteres; i++) {
 
         if (i%2 == 0){
-            //console.log(phrase[0].charAt(i))
             result = result + phrase[0].charAt(i).toLowerCase();
         } else {
             result = result + phrase[0].charAt(i).toUpperCase();
-            //console.log(i + " Majuscule")
         }
     }
     console.log(result)
