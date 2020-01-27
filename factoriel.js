@@ -1,4 +1,4 @@
-var args = process.argv.slice(2);
+var args = process.argv[2];
 factoriel(args)
 
 function factoriel(args){
@@ -10,9 +10,6 @@ function factoriel(args){
         } else {
             result = result * i;
         }
-        //console.log(result)
-
     }
-
     console.log(result)
 }
