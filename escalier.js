@@ -1,3 +1,4 @@
+var args = process.argv[2];
 function escalier(nb) {
     var texteAdd = "#";
     var retourLigne = "\n";
@@ -25,7 +26,7 @@ function escalier(nb) {
     
 }
 
-var args = process.argv.slice(2);
+
 
 escalier(args)
 
