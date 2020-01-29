@@ -30,10 +30,10 @@ function read(file){
 
    //Horizontal
     for (i=0;i<file_Data.length;i++){
-        if (file_Data[i].indexOf("_") != -1){
+        while (file_Data[i].indexOf("_") != -1){
+            edit = [i,file_Data[i].indexOf("_")];
             for(k=1;k<9;k++){
                 if(file_Data[i].indexOf(allPossibility[k]) == -1){
-                    edit = [i,file_Data[i].indexOf("_")];
                     file_Data[edit[0]][edit[1]] = allPossibility[k]
                     
                 }
