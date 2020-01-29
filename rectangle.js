@@ -24,11 +24,12 @@ function read(fil1,fil2){
             c1_data[arrayNb][arrayNb2] = file1.charAt(i);
             arrayNb2++
         }
-        
+        if (i == file1.length-1){
+            arrayNb=0;
+            arrayNb2=0;
+        }
     }
 
-    arrayNb=0;
-    arrayNb2=0;
 
     for (i=0; i<file2.length; i++){ // Mise en forme du c2 en tableau 
         if (file2.charAt(i) == "\n"){
@@ -38,23 +39,45 @@ function read(fil1,fil2){
             c2_data[arrayNb][arrayNb2] = file2.charAt(i);
             arrayNb2++
         }
-        
     }
-   
-   for (i=0;i<c2_data.length;i++){
-       for (x=0;x<c2_data[i].length;x++){
-           if (c2_data[i][x+2] != null && c1_data[x] !== undefined){
-                if (c1_data[0][0] == c2_data[i][x] && c1_data[0][1] == c2_data[i][x+1] && c1_data[0][2] == c2_data[i][x+2]){ 
-                    if (c1_data[1][0] == c2_data[i+1][x] && c1_data[1][1] == c2_data[i+1][x+1] && c1_data[1][2] == c2_data[i+1][x+2]){ 
-                        if (c1_data[2][0] == c2_data[i+2][x] && c1_data[2][1] == c2_data[i+2][x+1] && c1_data[2][2] == c2_data[i+2][x+2]){ 
-                            index = i+","+x;
-                            sendResult(index)
+
+    var c1_longeur = c1_data[0].length-1; // 3
+    var c1_ligne = c1_data.length-1; // 3
+
+    //console.log(c1_longeur)
+    /*
+    c1_data[i][j]
+    c2_data[k][l]
+    */
+    var array1_value = 0;
+    var array2_value = 0;
+
+    for (i=0; i<c1_data.length; i++){
+        for (j=0; j<c1_data[i].length; j++){
+            for (k=0; k<c2_data.length; k++){
+                for (l=0; l<c2_data[k].length; l++){
+                    if ((c2_data[k][l+c1_longeur] != null) && (c2_data[k+c1_ligne] != null) && (c1_data[i] !== undefined) && (c1_data[i][j] !== undefined)){
+                        if (c1_data[i+array1_value][j+array2_value] == c2_data[k+array1_value][l+array2_value]){
+                            while ((array1_value <= c1_longeur) && (array2_value <= c1_ligne) && index == "Not Found"){
+                                if ((array1_value == c1_longeur) && (array2_value == c1_ligne)){
+                                    index = k+","+l;
+                                    array1_value=0;
+                                    array2_value=0;
+                                    break
+                                } else if ((c1_data[i+array1_value][j+array2_value] == c2_data[k+array1_value][l+array2_value]) && (array2_value < c1_ligne)){
+                                    array2_value++
+                                } else if ((c1_data[i+array1_value][j+array2_value] == c2_data[k+array1_value][l+array2_value]) && (array2_value == c1_ligne)){
+                                    array1_value++
+                                    array2_value=0;
+                                }
+                            }
                         }
                     }
-                } 
+                }
             }
         }
     }
+    sendResult(index)
 }
 
 function sendResult(index){
